@@ -5,6 +5,7 @@ class Instructor::CoursesController < ApplicationController
   def new
     @course = Course.new
   end
+
   def create
     @course = current_user.courses.create(course_params)
     if @course.valid?
@@ -15,6 +16,7 @@ class Instructor::CoursesController < ApplicationController
   end
 
   def show
+    @course = Course.find(params[:id])
   end
 
   private
@@ -31,6 +33,6 @@ class Instructor::CoursesController < ApplicationController
   end
 
   def course_params
-    params.require(:course).permit(:title, :description, :cost)
+    params.require(:course).permit(:title, :description, :cost, :image)
   end
 end
