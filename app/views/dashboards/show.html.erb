@@ -7,10 +7,16 @@
       <%= link_to course.title, course_path(course) %>
     </h3>
     <br />
-    <%= image_tag course.image.url, class: 'img-fluid' %>
+    <% if course.image.url %>
+          <%= image_tag course.image.url, class: 'img-fluid' %>
+          <br />
+       <% end %>
     <br />
     <div class="row">
-      <div class="col-12 col-sm-8">
+      <% if course.image.url %>
+        <%= image_tag course.image.url, class: 'img-fluid' %>
+        <br />
+     <% end %>   <div class="col-12 col-sm-8">
         <%= course.description %>
       </div>
       <div class="col-12 col-sm-4 text-center">
@@ -27,7 +33,10 @@
       <%= link_to course.title, course_path(course) %>
     </h3>
     <br />
-    <%= image_tag course.image.url, class: 'img-fluid' %>
+    <% if course.image.url %>
+          <%= image_tag course.image.url, class: 'img-fluid' %>
+          <br />
+       <% end %>
     <br />
     <div class="row">
       <div class="col-12 col-sm-8">
